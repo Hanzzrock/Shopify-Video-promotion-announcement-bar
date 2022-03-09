@@ -1,0 +1,605 @@
+
+<div class="containerX">
+<video  width="100%" video="100%" style="width:100%, height:100%" playsinline="playsinline" muted="muted" preload="yes" autoplay="autoplay" loop="loop" id="vjs_video_739_html5_api" class="video-js" data-setup='{"autoplay":"any"}'>
+    		<source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+   <div class="overlay">
+        <h4>{{ section.settings.video-text1 }}</h4>
+        <h4>{{ section.settings.video-text2 }}</h4>
+        <h4>{{ section.settings.video-text3 }}</h4>
+    </div>
+</div>
+{%- if section.settings.fliprows  -%}
+<div class="announcement">
+	<span class="close">x</span>
+	<div class="text">
+		<span class="is-desktop">
+			<strong>{{ section.settings.sale-heading }}</strong>{{ section.settings.sale-text}}
+		</span>
+		<span class="is-mobile">{{ section.settings.sale-mobile }} <strong>{{ section.settings.discount-percent }}</strong></span>
+	</div>
+	<div class="coupon">
+		<input type="text" value="{{ section.settings.coupon }}" id="couponCode" readonly />
+		<div class="tooltip">
+			<button onclick="myFunction()" onmouseout="outFunc()">
+				<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+				Copy
+			</button>
+		</div>
+	</div>
+	
+</div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Video BG Slider",
+    "settings": [
+{
+        "type": "text",
+        "id": "video_url",
+        "label": "Background video link",
+        "default": "https://cdn.shopify.com/s/files/1/0278/4421/4886/files/GK_Hair_Professional_Page_VP8.webm?v=1636664968",
+        "info": "GK HAIR OFFICIAL VIDEO"
+      },
+{
+      "id": "video-text1",
+      "type": "text",
+      "label": "Overlay Text 1",
+      "default": "BALANCE"
+    },
+    {
+      "id": "video-text2",
+      "type": "text",
+      "label": "Overlay Text 2",
+      "default": "~RELEASE"
+    },
+    {
+      "id": "video-text3",
+      "type": "text",
+      "label": "Overlay Text 3",
+      "default": "RESTORE"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "fliprows", 
+      "label": "Show Promotion Bar?",
+      "default": false
+    },
+
+    {
+      "id": "sale-heading",
+      "type": "text",
+      "label": "Sale Heading",
+      "default": "PROMOTION"
+    },
+{
+      "id": "sale-text",
+      "type": "text",
+      "label": "Sale text Desktop",
+      "default": ". Promotion text short description . Use Coupon"
+    },
+{
+      "id": "sale-mobile",
+      "type": "text",
+      "label": "Sale Mobile Text",
+      "default": ". Promotion text short description . Use Coupon"
+    },
+    {
+      "id": "discount-percent",
+      "type": "text",
+      "label": "Discount percent",
+      "default": "50% OFF"
+    },
+{
+      "id": "coupon",
+      "type": "text",
+      "label": "Coupon code",
+      "default": "CODEPEN50"
+    }
+
+]
+ ,
+    "presets": [{
+      "name": "Video BG Slider",
+      "category": "Video"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+
+{% endstylesheet %}
+
+{% javascript %}
+  
+ 
+                               
+{% endjavascript %}
+
+<style>
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+  
+  .overlay h4 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    top: 18rem;
+    color: white !important;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    left: 20px;
+    background: #100f0f38;
+    text-transform: uppercase;
+}
+    .overlay h4::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    background: #ffa301;
+    width: 30%;
+    height: 2px;
+    top: 67px;
+    bottom: 0;
+}
+  
+  }
+  @media (min-width: 769px) and (max-width: 2560px) {
+   .overlay h4 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    top: 25rem;
+    color: white !important;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    left: 20px;
+    background: #100f0f38;
+    text-transform: uppercase;
+}
+  
+.overlay h4::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    background: #ffa301;
+    width: 30%;
+    height: 2px;
+    top: 67px;
+    bottom: 0;
+}  
+  
+  }
+  .containerX { position:relative; }
+.containerX video {
+    position:relative;
+    z-index:0;
+}
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+}
+  .pro-hero__bottom-left p {
+    color: white !important;
+}
+  a.pro-hero__section-link {
+    text-decoration: none !important;
+}
+  .pro-hero__bottom {
+    margin-bottom: 20px;
+}
+  .pro-hero__bottom-right p {
+    color: white !important;
+    text-transform: uppercase !important;
+    font-family: 'Oswald' !important;
+}
+  @media (min-width: 320px) and (max-width: 480px) { 
+  
+  .pro-hero__bottom-right p {
+    font-size: 18px !important;
+}
+ .pro-hero__bottom-left p {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    font-size: 18px !important;
+ 
+  }
+    .overlay h4::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    background: #ffa301;
+    width: 30%;
+    height: 2px;
+    top: 38px;
+    bottom: 0;
+}
+    .pro-hero__bottom-right {
+    
+     margin-top: 0px !important;
+    
+    }
+    
+    .overlay h4 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    top: 9rem;
+    color: white !important;
+    font-size: 29px;
+    margin: 0;
+    padding: 0;
+    left: 6px;
+    background: #100f0f38;
+    text-transform: uppercase;
+}
+    .pro-hero__bottom-right {
+    background: #ffa301;
+    flex-basis: 50%;
+    text-align: center;
+    color: #000;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    
+}
+    .pro-hero__bottom-left {
+    background: #2d006a;
+    background-size: cover;
+    background-position: center;
+    flex-basis: 50%;
+    text-align: center;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    
+    }}
+  @media all{
+a{background-color:transparent;-webkit-text-decoration-skip:objects;}
+*,::after,::before{box-sizing:border-box;}
+a:focus{color:inherit;}
+a{touch-action:manipulation;}
+@media print{
+p{orphans:3;widows:3;}
+}
+*,:after,:before{box-sizing:border-box;}
+a,div,p,span{margin:0;padding:0;}
+:focus,a:active,a:focus,a:hover{outline:0 none transparent;}
+a{color:#000;outline:0;text-decoration:none;transition:background-color .3s,color .3s;}
+.no-ios a:hover{color:#969696;}
+.pro-hero__bottom{display:flex;flex-direction:column;}
+@media (min-width:1024px){
+.pro-hero__bottom{flex-direction:row;}
+}
+.pro-hero__bottom-left{background: #2d006a;;background-size:cover;background-position:center;flex-basis:50%;text-align:center;color:#fff;height:65px;display:flex;justify-content:center;align-items:center;padding:0 20px;margin-top: -7px;}
+.pro-hero__bottom-left p{font-family: 'Oswald';
+    text-transform: uppercase;font-size:25px;}
+@media (min-width:1024px){
+.pro-hero__bottom-left p{font-size:30px;}
+}
+.pro-hero__bottom-left span{text-decoration:underline;color:#fff;}
+.pro-hero__bottom-right{background:#ffa301;flex-basis:50%;text-align:center;color:#000;height:65px;display:flex;justify-content:center;align-items:center;padding:0 20px; margin-top: -7px;}
+.pro-hero__bottom-right p{font-family:"Founders Grotesk Medium",Helvetica,Arial,sans-serif;font-size:25px;}
+@media (min-width:1024px){
+.pro-hero__bottom-right p{font-size:30px;}
+}
+.pro-hero__bottom-right span{text-decoration:underline;}
+.pro-hero__section-link{width:100%;}
+@media (min-width:1024px){
+.pro-hero__section-link{width:50%;}
+}
+}
+/*! CSS Used fontfaces */
+@font-face{font-family:"Founders Grotesk Medium";font-style:normal;font-weight:400;src:url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.eot?v=233111769955023480");src:url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.eot?v=233111769955023480?#iefix") format("embedded-opentype"),url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.woff2?v=1354706902340822809") format("woff2"),url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.woff?v=6889905056665436888") format("woff"),url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.ttf?v=3056838752753348016") format("truetype"),url("//cdn.shopify.com/s/files/1/0023/1148/7532/t/114/assets/webfont-founders-grotesk-medium.svg?v=6214249017907289686?#webfont-founders-grotesk-medium") format("svg");}
+@font-face{font-family:'Founders Grotesk Medium';src:url(https://cdn.shopify.com/s/files/1/0023/1148/7532/t/23/assets/webfont-founders-grotesk-medium.woff2);font-weight:500;font-style:normal;font-display:swap;}
+
+
+
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+}
+/* Helpers */
+.is-hidden {
+	display: none !important;
+}
+
+.is-desktop {
+	display: block;
+}
+
+@media (max-width: 768px) {
+	.is-desktop {
+		display: none !important;
+	}
+}
+
+.is-mobile {
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+	.is-mobile {
+		display: block !important;
+	}
+}
+
+.announcement {
+	--base-font: inherit;
+	--small-font: 0.75rem;
+	--normal-font: 1rem;
+	--medium-font: 1.25rem;
+	--primary-color: #FA003F;
+	--secondary-color: #fff;
+	--base-padding: 0.5rem;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--primary-color);
+	font-family: var(--base-font-dev), sans-serif;
+	padding: var(--base-padding);
+}
+
+@media (max-width: 768px) {
+	.announcement {
+		flex-direction: column-reverse;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 10;
+	}
+}
+
+@media print {
+	.announcement {
+		display: none;
+	}
+}
+
+.announcement .text {
+	padding: 0 1rem;
+	color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+	.announcement .text {
+		padding-bottom: var(--base-padding);
+	}
+}
+
+.announcement input,
+.announcement button {
+	font-family: var(--base-font);
+	font-size: var(--small-font);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: var(--base-padding);
+	border: 2px dashed var(--secondary-color);
+	/* height: 36px; */
+}
+
+.announcement input {
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	text-align: center;
+	border-right: 0;
+	font-size: 16px;
+}
+
+.announcement button {
+	background: var(--secondary-color);
+	color: var(--primary-color);
+	cursor: pointer;
+	box-shadow: none;
+	border-radius: 0;
+	font-size: 1rem;
+}
+
+.announcement #timer {
+	/* font-weight: bold; */
+	background: var(--secondary-color);
+	color: var(--primary-color);
+	padding: var(--base-padding);
+	margin-left: 1rem;
+	width: 150px;
+	text-align: center;
+	border: 1px dashed var(--secondary-color);
+	margin-right: 2.5rem;
+	line-height: 1.3;
+}
+
+.announcement .coupon {
+	display: flex;
+	align-items: center;
+}
+
+@media (max-width: 768px) {
+	.announcement .coupon {
+		margin: 1rem auto;
+	}
+}
+
+/* Style the close button (span) */
+.announcement .close {
+	cursor: pointer;
+	position: absolute;
+	top: -3rem;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0;
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	height: 35px;
+	width: 35px;
+	line-height: 35px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+@media (min-width: 769px) {
+	.announcement .close {
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: 50%;
+		left: inherit;
+		right: 0.5rem;
+	}
+}
+
+.announcement .close:hover {
+	background: var(--secondary-color);
+	color: var(--primary-color);
+}
+
+.announcement .tooltip {
+	position: relative;
+	display: inline-block;
+	color: var(--secondary-color);
+	opacity: 1;
+	line-height: inherit;
+	font-size: inherit;
+	z-index: inherit;
+}
+
+.announcement .tooltip .tooltiptext {
+	visibility: hidden;
+	position: absolute;
+	bottom: 130%;
+	left: 50%;
+	background-color: #555;
+	color: #fff;
+	width: 170px;
+	font-size: smaller;
+	/* font-weight: bold; */
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	margin-left: -75px;
+	opacity: 0;
+	transition: opacity 0.3s;
+	z-index: 1;
+}
+
+.announcement .tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+	bottom: -100%;
+}
+
+.announcement .tooltip .tooltiptext::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+	top: -35%;
+	transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+	.announcement .tooltip:hover .tooltiptext {
+		bottom: 150%;
+	}
+
+	.announcement .tooltip .tooltiptext::after {
+		top: 100%;
+		transform: rotate(0deg);
+	}
+}
+.home-section {
+    
+    z-index: 4;
+}
+
+</style>
+
+<script>
+  // Countdown Timer
+function countDown(x) {
+	if (x.matches) {
+		console.log('Mobile');
+	} else {
+		// If media query matches
+		console.log('Desktop');
+		// Set the date we're counting down to
+		var countDownDate = new Date('Dec 30, 2021 00:00:00').getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function () {
+			// Get today's date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor(
+				(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+			);
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Output the result in an element with id="demo"
+			document.getElementById('timer').innerHTML =
+				days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+			// If the count down is over, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById('timer').innerHTML = 'EXPIRED';
+			}
+		}, 1000);
+	}
+}
+
+var x = window.matchMedia('(max-width: 768px)');
+countDown(x); // Call listener function at run time
+x.addListener(countDown); // Attach listener function on state changes
+
+// Click to Copy
+var tooltip = document.getElementById('myTooltip');
+var copyText = document.getElementById('couponCode');
+function myFunction() {
+	copyText.select();
+	copyText.setSelectionRange(0, 99999);
+	document.execCommand('copy');
+	tooltip.innerHTML = 'Copied: ' + copyText.value;
+}
+function outFunc() {
+	tooltip.innerHTML = 'Copy to clipboard';
+}
+
+// Close
+var closebtns = document.getElementsByClassName(
+	'close'
+); /* Get all elements with class="close" */
+var i;
+/* Loop through the elements, and hide the parent, when clicked on */
+for (i = 0; i < closebtns.length; i++) {
+	closebtns[i].addEventListener('click', function () {
+		this.parentElement.style.display = 'none';
+	});
+}
+</script>
